@@ -72,25 +72,20 @@
             border-radius: 10px;
             box-shadow: 2px 2px 10px #ccc;
         }
-
-
     </style>
 </head>
 
 <body>
-
     <h1>Conversor de Horas em Decimal</h1>
-
     <form>
         Horas: <input type="number" id="hours" min="0" value="0">
         Minutos: <input type="number" id="minutes" min="0" max="59" value="0">
         <button type="button" onclick="convertToDecimal()">Converter</button>
     </form>
-
+    
     <p id="result"></p>
 
     <script>
-
         document.getElementById("minutes").addEventListener("input", function () {
             if (this.value > 60) {
                 this.value = 60;
@@ -104,8 +99,6 @@
             document.getElementById("result").innerHTML = hours + " horas " + Math.round(minutes) + " minutos e igual a " + decimal.toFixed(2) + " horas decimais.";
         }
     </script>
-
-
 </body>
 
 </html>
