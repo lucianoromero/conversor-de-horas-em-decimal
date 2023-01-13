@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Conversor de Horas em Decimal</title>
+    <style>
+        /* Adicionando uma fonte */
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        /* Centralizando o conteúdo da página */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        /* Estilizando o título */
+        h1 {
+            margin: 0;
+            padding: 20px;
+            font-size: 32px;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Estilizando o formulário */
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 2px solid #333;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px #ccc;
+        }
+
+        /* Estilizando os inputs */
+        input[type="number"] {
+            width: 150px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        /* Estilizando o botão */
+        button[type="button"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilizando o resultado */
+        #result {
+            margin: 20px;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px #ccc;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Conversor de Horas em Decimal</h1>
+
+    <form>
+        Horas: <input type="number" id="hours" min="0" value="0">
+        Minutos: <input type="number" id="minutes" min="0" max="59" value="0">
+        <button type="button" onclick="convertToDecimal()">Converter</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+
+        document.getElementById("minutes").addEventListener("input", function () {
+            if (this.value > 60) {
+                this.value = 60;
+            }
+        });
+
+        function convertToDecimal() {
+            var hours = document.getElementById("hours").value;
+            var minutes = document.getElementById("minutes").value;
+            var decimal = (Math.round(minutes) / 60) + parseFloat(hours);
+            document.getElementById("result").innerHTML = hours + " horas " + Math.round(minutes) + " minutos e igual a " + decimal.toFixed(2) + " horas decimais.";
+        }
+    </script>
+
+
+</body>
+
+</html>
